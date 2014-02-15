@@ -1,7 +1,7 @@
 from os.path import join
 from xdress.utils import apiname
 
-_from_src_dir = lambda x: join('Box2D', *x.split('/'))
+_from_src_dir = lambda x: join('Box2D', 'Box2D', *x.split('/'))
 
 def _api_name_kwargs(src_file_glob):
     return {'srcfiles': _from_src_dir(src_file_glob),
@@ -11,7 +11,8 @@ def _api_name_kwargs(src_file_glob):
 
 package = 'boxtwodee'
 packagedir = 'boxtwodee'
-includes = ['.', 'Box2D', _from_src_dir('Common'),
+includes = [join('.', 'Box2D'), join('.', 'Box2D', 'Box2D'),
+            _from_src_dir('Common'),
             _from_src_dir('Collision'), _from_src_dir('Collision/Shapes'),
             _from_src_dir('Dynamics'), _from_src_dir('Dynamics/Contacts'),
             _from_src_dir('Dynamics/Joints'),
